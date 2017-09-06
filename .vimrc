@@ -28,7 +28,7 @@ set history=2000                 "history存储长度
 set nocompatible                 "非兼容vi模式,避免以前版本的一些bug和局限
 set autoread                     "文件修改之后自动载入
 set shortmess=atI                "启动的时候不显示那个援助索马里儿童的提示
-set t_ti= t_te=                  "退出vim后，内容显示在终端屏幕
+"set t_ti= t_te=                  "退出vim后，内容显示在终端屏幕
 set title                        "change the terminal's title
 set novisualbell                 "don't beep
 set noerrorbells                 "don't beep
@@ -111,7 +111,7 @@ set laststatus=2                 "命令行（在状态行下）的高度，默�
 
 " 相对绝对行号
 """""""""""""""""""""""""""""""""""""""""
-"autocmd FocusLost * :set norelativenumber number
+autocmd FocusLost * :set norelativenumber number
 autocmd FocusGained * :set relativenumber
 autocmd InsertEnter * :set norelativenumber number
 autocmd InsertLeave * :set relativenumber
@@ -167,6 +167,9 @@ noremap <silent><leader>/ :nohls<CR>
 
 inoremap ff <esc>
 vmap ff <esc>
+
+nmap ,jk ddp
+nmap ,kj ddkkp
 
 
 " 多窗口标签快捷键
@@ -401,7 +404,7 @@ Bundle 'nono/jquery.vim'
 Bundle 'Glench/Vim-Jinja2-Syntax'
 
 " for nginx conf file highlight.   need to confirm it works
-Bundle 'thiderman/nginx-vim-syntax'
+Bundle 'evanmiller/nginx-vim-syntax'
 
 " for git 尚未用起来
 Bundle 'tpope/vim-fugitive'
@@ -416,7 +419,7 @@ let g:ycm_global_ycm_extra_conf='~/.ycm_extra_conf.py'
 let g:ycm_confirm_extra_conf=0
 set completeopt=longest,menu
 "python解释器路径"
-"let g:ycm_path_to_python_interpreter='/usr/local/bin/python'
+let g:ycm_path_to_python_interpreter='/usr/bin/python'
 "是否开启语义补全"
 let g:ycm_seed_identifiers_with_syntax=1
 "是否在注释中也开启补全"
@@ -475,6 +478,19 @@ Plugin 'terryma/vim-multiple-cursors'
 
 " end turn on
 filetype plugin indent on
+
+Plugin 'SirVer/ultisnips'
+let g:UltiSnipsSnippetDirectories=['bundle/vim-snippets', 'bundle/vim-snippets/UltiSnips']
+let g:UltiSnipsSnippetsDir = '~/.vim/bundle/vim-snippets'
+let g:UltiSnipsExpandTrigger = '<S-j>'
+let g:UltiSnipsListSnippets = '<C-Tab>'
+let g:UltiSnipsJumpForwardTrigger = '<C-n>'
+let g:UltiSnipsJumpBackwardTrigger = '<C-b>'
+
+Plugin 'honza/vim-snippets'
+
+Plugin 'tpope/vim-fugitive'
+Plugin 'junegunn/gv.vim'
 """""""""""""""""""""""""""""""""""""""""
 " 插件管理配置结束
 """""""""""""""""""""""""""""""""""""""""
@@ -490,3 +506,6 @@ function! NumberToggle()
     set relativenumber
   endif
 endfunc
+
+"close match parentheses
+"let loaded_matchparen = 1
