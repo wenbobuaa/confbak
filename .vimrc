@@ -20,7 +20,7 @@ filetype indent on               "针对不同的文件类型采用不同的缩�
 filetype plugin on               "允许插件
 filetype plugin indent on        "启动自动补全
 
-set cc=80
+set cc=120
 set tags=/Users/wenbo/baishan/tags
 set nobackup                     "不自动保存
 set relativenumber number        "相对行号，可用Ctrl+n在相对/绝对行号间切换
@@ -165,9 +165,6 @@ nnoremap ; :
 " 去掉查找后的高亮显示
 noremap <silent><leader>/ :nohls<CR>
 
-inoremap ff <esc>
-vmap ff <esc>
-
 nmap ,jk ddp
 nmap ,kj ddkkp
 
@@ -202,7 +199,7 @@ endif
 
 " 修改主题和颜色展示
 set background=dark
-colorscheme solarized
+colorscheme SolarizedDark
 set t_Co=256
 
 " 设置标记一列的背景颜色和数字一行颜色一致
@@ -249,7 +246,7 @@ Bundle 'scrooloose/nerdtree'
 nnoremap<leader>n :exe'NERDTreeToggle'<CR>
 "map <leader>n :NERDTreeToggle<CR>
 let NERDTreeHighlightCursorline=1
-"let NERDTreeIgnore=[ '\.pyc$', '\.pyo$', '\.obj$', '\.o$', '\.so$', '\.egg$', '^\.git$', '^\.svn$', '^\.hg$' ]
+let NERDTreeIgnore=[ '\.pyc$', '\.pyo$', '\.obj$', '\.o$', '\.so$', '\.egg$', '^\.git$', '^\.svn$', '^\.hg$' ]
 "let g:netrw_home='~/'
 
 " close vim if the only window left open is a NERDTree
@@ -339,11 +336,11 @@ let EasyGrepWindow = 1
 """""""""""""""""""""""""""""""""""""""""
 Bundle 'scrooloose/nerdcommenter'
 
-" 插件：自动补全单引号，双引号等
-"""""""""""""""""""""""""""""""""""""""""
-Bundle 'Raimondi/delimitMate'
-" for python docstring " ,优化输入
-autocmd FileType python let b:delimitMate_nesting_quotes = ['"']
+"" 插件：自动补全单引号，双引号等
+""""""""""""""""""""""""""""""""""""""""""
+"Bundle 'Raimondi/delimitMate'
+"" for python docstring " ,优化输入
+"autocmd FileType python let b:delimitMate_nesting_quotes = ['"']
 
 " 自动补全html/xml标签
 Bundle 'docunext/closetag.vim'
@@ -482,15 +479,13 @@ filetype plugin indent on
 Plugin 'SirVer/ultisnips'
 let g:UltiSnipsSnippetDirectories=['bundle/vim-snippets', 'bundle/vim-snippets/UltiSnips']
 let g:UltiSnipsSnippetsDir = '~/.vim/bundle/vim-snippets'
-let g:UltiSnipsExpandTrigger = '<S-j>'
+let g:UltiSnipsExpandTrigger = '<C-j>'
 let g:UltiSnipsListSnippets = '<C-Tab>'
 let g:UltiSnipsJumpForwardTrigger = '<C-n>'
 let g:UltiSnipsJumpBackwardTrigger = '<C-b>'
 
 Plugin 'honza/vim-snippets'
 
-Plugin 'tpope/vim-fugitive'
-Plugin 'junegunn/gv.vim'
 """""""""""""""""""""""""""""""""""""""""
 " 插件管理配置结束
 """""""""""""""""""""""""""""""""""""""""
