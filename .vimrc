@@ -20,7 +20,7 @@ filetype indent on               "针对不同的文件类型采用不同的缩�
 filetype plugin on               "允许插件
 filetype plugin indent on        "启动自动补全
 
-set cc=120
+set cc=80
 set tags=/Users/wenbo/baishan/tags
 set nobackup                     "不自动保存
 set relativenumber number        "相对行号，可用Ctrl+n在相对/绝对行号间切换
@@ -199,7 +199,7 @@ endif
 
 " 修改主题和颜色展示
 set background=dark
-colorscheme SolarizedDark
+colorscheme solarized
 set t_Co=256
 
 " 设置标记一列的背景颜色和数字一行颜色一致
@@ -362,13 +362,13 @@ map K <Plug>(expand_region_shrink)
 """""""""""""""""""""""""""""""""""""""""
 " 编辑时自动语法检查标红, vim-flake8目前还不支持,所以多装一个
 " 使用pyflakes,速度比pylint快
-Bundle 'scrooloose/syntastic'
-let g:syntastic_error_symbol='>>'
-let g:syntastic_warning_symbol='>'
-let g:syntastic_check_on_open=1
-let g:syntastic_enable_highlighting = 0
-let g:syntastic_python_checkers=['pyflakes']
-highlight SyntasticErrorSign guifg=white guibg=black
+"Bundle 'scrooloose/syntastic'
+"let g:syntastic_error_symbol='>>'
+"let g:syntastic_warning_symbol='>'
+"let g:syntastic_check_on_open=1
+"let g:syntastic_enable_highlighting = 0
+"let g:syntastic_python_checkers=['pyflakes']
+"highlight SyntasticErrorSign guifg=white guibg=black
 
 " python fly check, 弥补syntastic只能打开和保存才检查语法的不足
 Bundle 'kevinw/pyflakes-vim'
@@ -485,6 +485,15 @@ let g:UltiSnipsJumpForwardTrigger = '<C-n>'
 let g:UltiSnipsJumpBackwardTrigger = '<C-b>'
 
 Plugin 'honza/vim-snippets'
+
+Bundle 'vim-syntastic/syntastic'
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+let g:syntastic_lua_checkers = ['luac', 'luacheck']
+let g:syntastic_lua_luacheck_args = "--no-redefined --std ngx_lua+lua51c+luajit --codes --module"
+let g:syntastic_mode_map = { "mode": "active", "active_filetypes": ["lua", "c", "yaml", "json"], "passive_filetypes": ["python", "go"] }
 
 """""""""""""""""""""""""""""""""""""""""
 " 插件管理配置结束
