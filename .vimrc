@@ -20,7 +20,7 @@ filetype indent on               "针对不同的文件类型采用不同的缩�
 filetype plugin on               "允许插件
 filetype plugin indent on        "启动自动补全
 
-set cc=80
+set cc=100
 set tags=/Users/wenbo/baishan/tags
 set nobackup                     "不自动保存
 set relativenumber number        "相对行号，可用Ctrl+n在相对/绝对行号间切换
@@ -49,7 +49,7 @@ set magic                        "正则表达式匹配形式
 set backspace=eol,start,indent   "Configure backspace so it acts as it should act
 set whichwrap+=<,>,h,l
 set completeopt-=preview
-set textwidth=80
+set textwidth=100
 
 " 搜索
 """""""""""""""""""""""""""""""""""""""""
@@ -416,7 +416,8 @@ let g:ycm_global_ycm_extra_conf='~/.ycm_extra_conf.py'
 let g:ycm_confirm_extra_conf=0
 set completeopt=longest,menu
 "python解释器路径"
-let g:ycm_path_to_python_interpreter='/usr/bin/python'
+"let g:ycm_path_to_python_interpreter='/usr/bin/python'
+let g:ycm_path_to_python_interpreter='/usr/local/opt/python/libexec/bin/python'
 "是否开启语义补全"
 let g:ycm_seed_identifiers_with_syntax=1
 "是否在注释中也开启补全"
