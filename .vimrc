@@ -167,6 +167,7 @@ noremap <silent><leader>/ :nohls<CR>
 
 nmap ,jk ddp
 nmap ,kj ddkkp
+nmap <Leader>y :!echo --==<C-R><C-w>==-- ;ici <C-R><C-W><CR>
 
 
 " 多窗口标签快捷键
