@@ -136,6 +136,11 @@ let g:netrw_silent = 1
 " 到光标所在行第一个非空字符
 map ( ^
 map ) $
+inoremap <C-a> <Home>
+inoremap <C-e> <End>
+nnoremap <C-a> ^
+nnoremap <C-e> $
+
 
 " 从光标处复制到行尾，不包括行尾结束符
 map Y y$
@@ -153,7 +158,7 @@ map <leader>q :wq!<CR>
 map <leader>z :w!<cr><C-z>
 
 " 全选
-map <C-a> ggVG
+"map <C-a> ggVG
 
 " 相对/绝对行号转换
 "noremap <C-n> :call NumberToggle()<cr>
@@ -165,8 +170,6 @@ nnoremap ; :
 " 去掉查找后的高亮显示
 noremap <silent><leader>/ :nohls<CR>
 
-nmap ,jk ddp
-nmap ,kj ddkkp
 nmap <Leader>y :!echo --==<C-R><C-w>==-- ;ici <C-R><C-W><CR>
 
 
