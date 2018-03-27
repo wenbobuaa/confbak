@@ -41,9 +41,9 @@ set wildmode=list:longest
 set ttyfast
 set wildignore=*.swp,*.,*.pyc,*.class
 set scrolloff=7                  "至少有7行在光标所在行上下
-set mouse=a                      "为所有模式启用鼠标
+"set mouse=a                      "为所有模式启用鼠标
 set selection=old
-set selectmode=mouse,key
+set selectmode=key
 set viminfo^=%                   "Remember info about open buffers on close
 set magic                        "正则表达式匹配形式
 set backspace=eol,start,indent   "Configure backspace so it acts as it should act
