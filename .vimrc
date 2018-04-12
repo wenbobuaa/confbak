@@ -51,6 +51,9 @@ set whichwrap+=<,>,h,l
 set completeopt-=preview
 set textwidth=100
 
+set noerrorbells
+set novisualbell
+
 " 搜索
 """""""""""""""""""""""""""""""""""""""""
 set hlsearch                     "高亮search命中的文本。
