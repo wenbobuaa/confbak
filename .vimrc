@@ -130,8 +130,8 @@ set cursorcolumn                "突出显示当前列，可用Ctrl+k切换是�
 """""""""""""""""""""""""""""""""""""""""
 " 前导符号
 """""""""""""""""""""""""""""""""""""""""
-let mapleader = ','
-let g:mapleader = ','
+let mapleader = ']'
+let g:mapleader = ']'
 let g:netrw_silent = 1
 
 " 常用快捷键
@@ -387,10 +387,6 @@ let g:pyflakes_use_quickfix = 0
 Bundle 'hdima/python-syntax'
 let python_highlight_all = 1
 
-" for golang
-Bundle 'jnwhiteh/vim-golang'
-Bundle 'Blackrush/vim-gocode'
-
 " for markdown
 Bundle 'plasticboy/vim-markdown'
 let g:vim_markdown_folding_disabled=1
@@ -400,6 +396,16 @@ Bundle "pangloss/vim-javascript"
 let g:html_indent_inctags = "html,body,head,tbody"
 let g:html_indent_script1 = "inc"
 let g:html_indent_style1 = "inc"
+
+"for go
+Plugin 'fatih/vim-go'
+Bundle 'dgryski/vim-godef'
+Bundle 'Blackrush/vim-gocode'
+"Bundle 'jnwhiteh/vim-golang'
+au FileType go nmap <Leader>d <Plug>(go-doc-vertical)
+au FileType go nmap <Leader>b <Plug>(go-build)
+
+let g:go_fmt_command = "goimports"
 
 " for jquery
 Bundle 'nono/jquery.vim'
