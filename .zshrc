@@ -2,6 +2,9 @@
 export ZSH=/Users/wenbo/.oh-my-zsh
 
 alias rm='rm -i'
+alias u='cd ..'
+alias uu='cd ../..'
+alias uuu='cd ../../..'
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
@@ -59,9 +62,17 @@ export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
 export PATH="/Users/wenbo/script:$PATH"
 export PATH="/usr/local/opt/openresty/nginx/sbin:$PATH"
 # export MANPATH="/usr/local/man:$MANPATH"
-export GOROOT="/usr/local/go"
-export GOPATH="/Users/wenbo/ec/"
-export PATH=$PATH:$GOROOT/bin
+export GOROOT="/usr/local/Cellar/go/1.10.3/libexec/"
+export GOMYPATH="/Users/wenbo/godir/GoPath"
+export GOBINLOGSYNC="/Users/wenbo/baishan/s2-init/source-code/mysql-devops/go/"
+export GITHUB="/Users/wenbo/baishan/godir/"
+export SLIMTRIE="/Users/wenbo/baishan/godir/github.com/openacid/"
+export GOPATH="$GOMYPATH:/Users/wenbo/baishan/ec/src/go:$GOBINLOGSYNC:$SLIMTRIE:$GITHUB"
+export PATH=$PATH:$GOROOT/bin:$GOMYPATH/bin
+export PATH=$PATH:/usr/local/mysql/bin
+
+export C_INCLUDE_PATH=/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/usr/include
+export LIBRARY_PATH=/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/usr/lib
 
 source $ZSH/oh-my-zsh.sh
 
@@ -161,3 +172,6 @@ init_prompt()
     ps=$ps"☛ "
     export PS1="$ps"
 }
+
+autoload -U +X bashcompinit && bashcompinit
+complete -o nospace -C /Users/wenbo/godir/GoPath/bin/gocomplete go

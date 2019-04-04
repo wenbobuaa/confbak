@@ -404,8 +404,15 @@ Bundle 'Blackrush/vim-gocode'
 "Bundle 'jnwhiteh/vim-golang'
 au FileType go nmap <Leader>d <Plug>(go-doc-vertical)
 au FileType go nmap <Leader>b <Plug>(go-build)
+au FileType go nmap <Leader>l <Plug>(go-metalinter)
+
 
 let g:go_fmt_command = "goimports"
+
+
+let g:go_metalinter_command = ""
+let g:go_metalinter_enabled = ['vet', 'golint']
+let g:go_metalinter_path = "./..."
 
 " for jquery
 Bundle 'nono/jquery.vim'
@@ -430,7 +437,7 @@ let g:ycm_confirm_extra_conf=0
 set completeopt=longest,menu
 "python解释器路径"
 "let g:ycm_path_to_python_interpreter='/usr/bin/python'
-let g:ycm_path_to_python_interpreter='/usr/local/opt/python/libexec/bin/python'
+let g:ycm_path_to_python_interpreter='/usr/local/bin/python'
 "是否开启语义补全"
 let g:ycm_seed_identifiers_with_syntax=1
 "是否在注释中也开启补全"
