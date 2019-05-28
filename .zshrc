@@ -138,7 +138,7 @@ PROMPT="
 %{$terminfo[bold]$fg[blue]%}#%{$reset_color%} \
 %(#,%{$bg[yellow]%}%{$fg[black]%}%n%{$reset_color%},%{$fg[cyan]%}%n) \
 %{$fg[white]%}at \
-%{$fg[green]%}mac \
+%{$fg[green]%}%m \
 %{$fg[white]%}in \
 %{$terminfo[bold]$fg[green]%}%~%{$reset_color%}\
 ${hg_info}\
