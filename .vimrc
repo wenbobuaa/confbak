@@ -84,14 +84,14 @@ set formatoptions+=B             "合并两行中文时，不在中间加空格�
 syntax enable                    "打开语法高亮
 syntax on
 
-" 撤销
-"""""""""""""""""""""""""""""""""""""""""
-set undolevels=1000              "How many undos
-set undoreload=10000             "number of lines to save for undo
-if v:version >= 730
-    set undofile                 "keep a persistent backup file
-    set undodir=~/bak/vimundo/
-endif
+"" 撤销
+""""""""""""""""""""""""""""""""""""""""""
+"set undolevels=1000              "How many undos
+"set undoreload=10000             "number of lines to save for undo
+"if v:version >= 730
+    "set undofile                 "keep a persistent backup file
+    "set undodir=~/bak/vimundo/
+"endif
 
 " 状态栏
 """""""""""""""""""""""""""""""""""""""""
@@ -197,6 +197,8 @@ hi! link ShowMarksHLu DiffChange
 """""""""""""""""""""""""""""""""""""""""
 " package dependent:  ctags
 " python dependent:  pep8, pyflake
+"
+let g:tagbar_ctags_bin='/usr/local/Cellar/ctags/5.8_1/bin/ctags'
 
 filetype off
 
@@ -242,16 +244,27 @@ let g:airline#extensions#tabline#show_tab_type = 1
 let g:airline#extensions#tabline#formatter = 'unique_tail'
 let g:airline#extensions#tabline#tab_nr_type = 2
 
-let g:airline#extensions#tabline#buffer_idx_mode = 1
-nmap <leader>1 <Plug>AirlineSelectTab1
-nmap <leader>2 <Plug>AirlineSelectTab2
-nmap <leader>3 <Plug>AirlineSelectTab3
-nmap <leader>4 <Plug>AirlineSelectTab4
-nmap <leader>5 <Plug>AirlineSelectTab5
-nmap <leader>6 <Plug>AirlineSelectTab6
-nmap <leader>7 <Plug>AirlineSelectTab7
-nmap <leader>8 <Plug>AirlineSelectTab8
-nmap <leader>9 <Plug>AirlineSelectTab9
+let g:airline#extensions#tabline#buffer_idx_mode = 2
+nmap <leader>1 <Plug>AirlineSelectTab11
+nmap <leader>2 <Plug>AirlineSelectTab12
+nmap <leader>3 <Plug>AirlineSelectTab13
+nmap <leader>4 <Plug>AirlineSelectTab14
+nmap <leader>5 <Plug>AirlineSelectTab15
+nmap <leader>6 <Plug>AirlineSelectTab16
+nmap <leader>7 <Plug>AirlineSelectTab17
+nmap <leader>8 <Plug>AirlineSelectTab18
+nmap <leader>9 <Plug>AirlineSelectTab19
+nmap <leader>0 <Plug>AirlineSelectTab20
+nmap <leader>[1 <Plug>AirlineSelectTab21
+nmap <leader>[2 <Plug>AirlineSelectTab22
+nmap <leader>[3 <Plug>AirlineSelectTab23
+nmap <leader>[4 <Plug>AirlineSelectTab24
+nmap <leader>[5 <Plug>AirlineSelectTab25
+nmap <leader>[6 <Plug>AirlineSelectTab26
+nmap <leader>[7 <Plug>AirlineSelectTab27
+nmap <leader>[8 <Plug>AirlineSelectTab28
+nmap <leader>[9 <Plug>AirlineSelectTab29
+nmap <leader>[0 <Plug>AirlineSelectTab30
 nmap <tab> <Plug>AirlineSelectPrevTab
 nmap <s-tab> <Plug>AirlineSelectNextTab
 
@@ -312,9 +325,10 @@ Plug 'Lokaltog/vim-easymotion'
 
 " 插件:search
 """""""""""""""""""""""""""""""""""""""""
-Plug 'dkprice/vim-easygrep'
-let EasyGrepRecursive = 1
-let EasyGrepWindow = 1
+"Plug 'dkprice/vim-easygrep'
+"let EasyGrepRecursive = 1
+"let EasyGrepWindow = 1
+Plug 'mhinz/vim-grepper'
 
 " 插件：快速加/减注释(选中后,按,cc加上注释,按,cu解开注释)
 """""""""""""""""""""""""""""""""""""""""
@@ -346,6 +360,7 @@ noremap <leader>ch :call Flake8()<CR>
 " for python.vim syntax highlight
 Plug 'hdima/python-syntax'
 let python_highlight_all = 1
+
 
 " for markdown
 Plug 'plasticboy/vim-markdown'
