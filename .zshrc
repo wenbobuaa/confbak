@@ -5,6 +5,8 @@ alias rm='rm -i'
 alias u='cd ..'
 alias uu='cd ../..'
 alias uuu='cd ../../..'
+alias vim=nvim
+alias vi=nvim
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
@@ -54,7 +56,7 @@ ZSH_THEME="agnoster"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+plugins=(git zsh-syntax-highlighting zsh-autosuggestions compleat colored-man-pages wd extract)
 
 # User configuration
 
@@ -62,12 +64,13 @@ export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
 export PATH="/Users/wenbo/script:$PATH"
 export PATH="/usr/local/opt/openresty/nginx/sbin:$PATH"
 # export MANPATH="/usr/local/man:$MANPATH"
-export GOROOT="/usr/local/Cellar/go/1.10.3/libexec/"
+export GOROOT="/usr/local/Cellar/go/1.12.2/libexec/"
 export GOMYPATH="/Users/wenbo/godir/GoPath"
+export GOMYTEST="/Users/wenbo/godir"
 export GOBINLOGSYNC="/Users/wenbo/baishan/s2-init/source-code/mysql-devops/go/"
 export GITHUB="/Users/wenbo/baishan/godir/"
 export SLIMTRIE="/Users/wenbo/baishan/godir/github.com/openacid/"
-export GOPATH="$GOMYPATH:/Users/wenbo/baishan/ec/src/go:$GOBINLOGSYNC:$SLIMTRIE:$GITHUB"
+export GOPATH="$GOMYPATH:/Users/wenbo/baishan/ec/src/go:$GOBINLOGSYNC:$SLIMTRIE:$GITHUB:$GOMYTEST"
 export PATH=$PATH:$GOROOT/bin:$GOMYPATH/bin
 export PATH=$PATH:/usr/local/mysql/bin
 
@@ -136,7 +139,7 @@ ys_hg_prompt_info() {
 
 PROMPT="
 %{$terminfo[bold]$fg[blue]%}#%{$reset_color%} \
-%(#,%{$bg[yellow]%}%{$fg[black]%}%n%{$reset_color%},%{$fg[cyan]%}%n) \
+%{$fg[cyan]%}%n%{$reset_color%} \
 %{$fg[white]%}at \
 %{$fg[green]%}%m \
 %{$fg[white]%}in \
@@ -175,3 +178,11 @@ init_prompt()
 
 autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /Users/wenbo/godir/GoPath/bin/gocomplete go
+
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+export CGO_ENABLED=0
+
+# java
+export JAVA_HOME="/Users/wenbo/workspace/jdk-12.0.1.jdk/Contents/Home"
+export CLASS_PATH="$JAVA_HOME/lib"
+export PATH="$JAVA_HOME/bin:$PATH"

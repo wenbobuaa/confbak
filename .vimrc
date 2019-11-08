@@ -127,8 +127,8 @@ noremap ( ^
 noremap ) $
 inoremap <C-a> <Home>
 inoremap <C-e> <End>
-inoremap <C-f> <ESC><space>a
-inoremap <C-b> <ESC>i
+inoremap <C-f> <Right>
+inoremap <C-b> <Left>
 nnoremap <C-a> ^
 nnoremap <C-e> $
 
@@ -182,9 +182,9 @@ if has("gui_running")
 endif
 
 " 修改主题和颜色展示
-set background=dark
-colorscheme solarized
 set t_Co=256
+set background=dark
+colorscheme spacegray
 
 " 设置标记一列的背景颜色和数字一行颜色一致
 hi! link SignColumn   LineNr
@@ -217,15 +217,23 @@ noremap <leader>bn :MBEbn<CR>
 noremap <leader>bp :MBEbp<CR>
 noremap <leader>bd :MBEbd<CR>
 
-" 插件：标签导航等
-"""""""""""""""""""""""""""""""""""""""""
+"" 标签页
+"Plug 'Yggdroot/LeaderF', { 'do': './install.sh' }
+"nnoremap<leader>t :LeaderfBufTag<CR>
+"nnoremap<leader>nt :LeaderfBufTag!<CR>
+"nnoremap<leader>f :LeaderfFile<CR>
+"let g:Lf_StlColorscheme = 'one'
+"let g:Lf_PreviewResult = { 'BufTag': 0, 'Function': 0 }
+
+"" 插件：标签导航等
+""""""""""""""""""""""""""""""""""""""""
 Plug 'majutsushi/tagbar'
 nnoremap<leader>t :exe'TagbarToggle'<CR>
 let g:tagbar_left = 1
 autocmd FileType tagbar setlocal nocursorline nocursorcolumn
 
-" 插件：文件搜索
-"""""""""""""""""""""""""""""""""""""""""
+"" 插件：文件搜索
+""""""""""""""""""""""""""""""""""""""""
 Plug 'kien/ctrlp.vim'
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
@@ -243,6 +251,9 @@ let g:airline#extensions#tabline#show_tab_nr = 1
 let g:airline#extensions#tabline#show_tab_type = 1
 let g:airline#extensions#tabline#formatter = 'unique_tail'
 let g:airline#extensions#tabline#tab_nr_type = 2
+let g:airline_theme='atomic'
+let airline#extensions#tmuxline#snapshot_file = "~/.tmux-status.conf"
+let g:airline#extensions#tmuxline#enabled = 1
 
 let g:airline#extensions#tabline#buffer_idx_mode = 2
 nmap <leader>1 <Plug>AirlineSelectTab11
@@ -277,12 +288,13 @@ let g:airline_symbols.branch = '⎇'
 let g:airline_symbols.paste = '∥'
 let g:airline_symbols.whitespace = 'Ξ'
 let g:airline_powerline_fonts = 1
-let g:airline_theme='tomorrow'
 let g:airline#extensions#tabline#enabled=1
 let g:airline_left_sep = '▶'
 let g:airline_left_alt_sep = '❯'
 let g:airline_right_sep = '◀'
 let g:airline_right_alt_sep = '❮'
+
+Plug 'edkolev/tmuxline.vim'
 
 " 插件：括号显示增强
 """""""""""""""""""""""""""""""""""""""""
