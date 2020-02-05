@@ -202,7 +202,8 @@ let g:tagbar_ctags_bin='/usr/local/Cellar/ctags/5.8_1/bin/ctags'
 
 filetype off
 
-call plug#begin('~/.vim/bundle')
+set rtp+=~/.config/nvim/bundle/Vundle.vim
+call vundle#begin()
 
 " 插件：目录导航等
 """""""""""""""""""""""""""""""""""""""""
@@ -455,7 +456,7 @@ endfunction
 " Remap for rename current word
 nmap <leader>rn <Plug>(coc-rename)
 
-call plug#end()
+call vundle#end()
 " end turn on
 filetype plugin indent on
 """""""""""""""""""""""""""""""""""""""""
