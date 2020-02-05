@@ -205,9 +205,11 @@ filetype off
 set rtp+=~/.config/nvim/bundle/Vundle.vim
 call vundle#begin()
 
+Plugin 'VundleVim/Vundle.vim'
+
 " 插件：目录导航等
 """""""""""""""""""""""""""""""""""""""""
-Plug 'scrooloose/nerdtree'
+Plugin 'scrooloose/nerdtree'
 nnoremap<leader>n :exe'NERDTreeToggle'<CR>
 let NERDTreeHighlightCursorline=1
 " close vim if the only window left open is a NERDTree
@@ -219,7 +221,7 @@ noremap <leader>bp :MBEbp<CR>
 noremap <leader>bd :MBEbd<CR>
 
 "" 标签页
-"Plug 'Yggdroot/LeaderF', { 'do': './install.sh' }
+"Plugin 'Yggdroot/LeaderF', { 'do': './install.sh' }
 "nnoremap<leader>t :LeaderfBufTag<CR>
 "nnoremap<leader>nt :LeaderfBufTag!<CR>
 "nnoremap<leader>f :LeaderfFile<CR>
@@ -228,14 +230,14 @@ noremap <leader>bd :MBEbd<CR>
 
 "" 插件：标签导航等
 """"""""""""""""""""""""""""""""""""""""
-Plug 'majutsushi/tagbar'
+Plugin 'majutsushi/tagbar'
 nnoremap<leader>t :exe'TagbarToggle'<CR>
 let g:tagbar_left = 1
 autocmd FileType tagbar setlocal nocursorline nocursorcolumn
 
 "" 插件：文件搜索
 """"""""""""""""""""""""""""""""""""""""
-Plug 'kien/ctrlp.vim'
+Plugin 'kien/ctrlp.vim'
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
 let g:ctrlp_working_path_mode = 'ra'
@@ -243,8 +245,8 @@ let g:ctrlp_max_files=0
 
 " 插件：状态栏美观
 """""""""""""""""""""""""""""""""""""""""
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
 let g:airline#extensions#tabline#left_sep = ' '
 let g:airline#extensions#tabline#left_alt_sep = '|'
 let g:airline#extensions#tabline#show_buffers = 1
@@ -295,11 +297,11 @@ let g:airline_left_alt_sep = '❯'
 let g:airline_right_sep = '◀'
 let g:airline_right_alt_sep = '❮'
 
-Plug 'edkolev/tmuxline.vim'
+Plugin 'edkolev/tmuxline.vim'
 
 " 插件：括号显示增强
 """""""""""""""""""""""""""""""""""""""""
-Plug 'kien/rainbow_parentheses.vim'
+Plugin 'kien/rainbow_parentheses.vim'
 let g:rbpt_colorpairs = [
     \ ['brown',       'RoyalBlue3'],
     \ ['Darkblue',    'SeaGreen3'],
@@ -328,71 +330,71 @@ autocmd Syntax * RainbowParenthesesLoadBraces
 
 " 插件：将每行无效的空格标红（,空格按键去掉末尾空格）
 """""""""""""""""""""""""""""""""""""""""
-Plug 'bronson/vim-trailing-whitespace'
+Plugin 'bronson/vim-trailing-whitespace'
 noremap <leader><space> :FixWhitespace<cr>
 
 " 插件：快速移动
 """""""""""""""""""""""""""""""""""""""""
 " 更高效的移动 ,, + w/fx
-Plug 'Lokaltog/vim-easymotion'
+Plugin 'Lokaltog/vim-easymotion'
 
 " 插件:search
 """""""""""""""""""""""""""""""""""""""""
-"Plug 'dkprice/vim-easygrep'
+"Plugin 'dkprice/vim-easygrep'
 "let EasyGrepRecursive = 1
 "let EasyGrepWindow = 1
-Plug 'mhinz/vim-grepper'
+Plugin 'mhinz/vim-grepper'
 
 " 插件：快速加/减注释(选中后,按,cc加上注释,按,cu解开注释)
 """""""""""""""""""""""""""""""""""""""""
-Plug 'scrooloose/nerdcommenter'
+Plugin 'scrooloose/nerdcommenter'
 
 " 插件：自动补全单引号，双引号等
 """""""""""""""""""""""""""""""""""""""""
-Plug 'Raimondi/delimitMate'
+Plugin 'Raimondi/delimitMate'
 " for python docstring " ,优化输入
 autocmd FileType python let b:delimitMate_nesting_quotes = ['"']
 
 " 自动补全html/xml标签
-Plug 'docunext/closetag.vim'
+Plugin 'docunext/closetag.vim'
 let g:closetag_html_style=1
 
 " 插件：代码格式化
 """""""""""""""""""""""""""""""""""""""""
-Plug 'godlygeek/tabular'
+Plugin 'godlygeek/tabular'
 nnoremap <Leader>a= :Tabularize /=<CR>
 vnoremap <Leader>a= :Tabularize /=<CR>
 nnoremap <Leader>a: :Tabularize /:\zs<CR>
 vnoremap <Leader>a: :Tabularize /:\zs<CR>
 
-Plug 'nvie/vim-flake8'
+Plugin 'nvie/vim-flake8'
 noremap <leader>ch :call Flake8()<CR>
 
 " 插件：具体语言语法高亮
 """""""""""""""""""""""""""""""""""""""""
 " for python.vim syntax highlight
-Plug 'hdima/python-syntax'
+Plugin 'hdima/python-syntax'
 let python_highlight_all = 1
 
 
 " for markdown
-Plug 'plasticboy/vim-markdown'
+Plugin 'plasticboy/vim-markdown'
 let g:vim_markdown_folding_disabled=1
 
-Plug 'tpope/vim-fugitive'
-Plug 'junegunn/gv.vim'
+Plugin 'tpope/vim-fugitive'
+Plugin 'junegunn/gv.vim'
 
-Plug 'mzlogin/vim-markdown-toc'
+Plugin 'mzlogin/vim-markdown-toc'
 let g:vmt_dont_insert_fence = 1
 
-Plug 'terryma/vim-multiple-cursors'
+Plugin 'terryma/vim-multiple-cursors'
 
-Plug 'tbastos/vim-lua'
+Plugin 'tbastos/vim-lua'
 
-Plug 'vim-scripts/a.vim'
+Plugin 'vim-scripts/a.vim'
 
 """""""""""""""""""""" vim-go """"""""""""""""""""""""""""
-Plug 'fatih/vim-go'
+Plugin 'fatih/vim-go'
 
 au FileType go nmap <Leader>d <Plug>(go-doc-vertical)
 au FileType go nmap <Leader>b <Plug>(go-build)
@@ -410,7 +412,7 @@ let g:syntastic_go_checkers = ['golint', 'govet', 'errcheck']
 let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['go'] }
 let g:go_fmt_command = "goimports"
 
-Plug 'neoclide/coc.nvim', {'tag': '*', 'do': './install.sh'}
+Plugin 'neoclide/coc.nvim', {'tag': '*', 'do': './install.sh'}
 
 " Some servers have issues with backup files, see #649
 set nowritebackup
