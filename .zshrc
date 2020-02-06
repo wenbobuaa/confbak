@@ -1,10 +1,7 @@
 # Path to your oh-my-zsh installation.
-export ZSH=/Users/wenbo/.oh-my-zsh
+export ZSH=~/.oh-my-zsh
 
 alias rm='rm -i'
-alias u='cd ..'
-alias uu='cd ../..'
-alias uuu='cd ../../..'
 alias vim=nvim
 alias vi=nvim
 
@@ -56,27 +53,11 @@ ZSH_THEME="agnoster"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
+# git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+# git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 plugins=(git zsh-syntax-highlighting zsh-autosuggestions compleat colored-man-pages wd extract)
 
 # User configuration
-
-export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
-export PATH="/Users/wenbo/script:$PATH"
-export PATH="/usr/local/opt/openresty/nginx/sbin:$PATH"
-# export MANPATH="/usr/local/man:$MANPATH"
-export GOROOT="/usr/local/Cellar/go/1.12.2/libexec/"
-export GOMYPATH="/Users/wenbo/godir/GoPath"
-export GOMYTEST="/Users/wenbo/godir"
-export GOBINLOGSYNC="/Users/wenbo/baishan/s2-init/source-code/mysql-devops/go/"
-export GITHUB="/Users/wenbo/baishan/godir/"
-export SLIMTRIE="/Users/wenbo/baishan/godir/github.com/openacid/"
-export GOPATH="$GOMYPATH:/Users/wenbo/baishan/ec/src/go:$GOBINLOGSYNC:$SLIMTRIE:$GITHUB:$GOMYTEST"
-export PATH=$PATH:$GOROOT/bin:$GOMYPATH/bin
-export PATH=$PATH:/usr/local/mysql/bin
-
-export C_INCLUDE_PATH=/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/usr/include
-export LIBRARY_PATH=/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/usr/lib
-
 source $ZSH/oh-my-zsh.sh
 
 # You may need to manually set your language environment
@@ -176,13 +157,7 @@ init_prompt()
     export PS1="$ps"
 }
 
-autoload -U +X bashcompinit && bashcompinit
-complete -o nospace -C /Users/wenbo/godir/GoPath/bin/gocomplete go
-
-export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
-export CGO_ENABLED=0
-
-# java
-export JAVA_HOME="/Users/wenbo/workspace/jdk-12.0.1.jdk/Contents/Home"
-export CLASS_PATH="$JAVA_HOME/lib"
-export PATH="$JAVA_HOME/bin:$PATH"
+autoload -U compinit && compinit
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
