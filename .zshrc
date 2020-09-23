@@ -2,8 +2,8 @@
 export ZSH=~/.oh-my-zsh
 
 alias rm='rm -i'
-alias vim=nvim
-alias vi=nvim
+#alias vim=nvim
+#alias vi=nvim
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
