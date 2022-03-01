@@ -1,0 +1,15 @@
+[user]
+	name = wenbobuaa
+	email = wenbobuaa@foxmail.com
+[core]
+	editor = vim
+[alias]
+	s = status
+	ck = checkout
+	l = log --color --graph --decorate -M --pretty=oneline --abbrev-commit -M
+	cm = commit
+	history = log --color --graph --decorate -M --pretty=format:\"%Cblue%h%C(yellow)%d %Creset%s | %Cgreen%an | %ad\" --date=short --abbrev-commit -M --all
+	fp = fetch -p
+	l2 = log --color --graph --decorate --format=\"%C(auto) %h%d %Cgreen%an%Creset %s %Cblue(%ad|%cr)%Creset\"
+[http]
+	sslVerify = false
