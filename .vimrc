@@ -210,6 +210,20 @@ let g:airline_left_alt_sep = '❯'
 let g:airline_right_sep = '◀'
 let g:airline_right_alt_sep = '❮'
 
+Plug 'flazz/vim-colorschemes'
+
+" Some servers have issues with backup files, see #649
+set nowritebackup
+
+" Better display for messages
+set cmdheight=2
+
+" Smaller updatetime for CursorHold & CursorHoldI
+set updatetime=300
+
+" don't give |ins-completion-menu| messages.
+set shortmess+=c
+
 " 插件：将每行无效的空格标红（,空格按键去掉末尾空格）
 """""""""""""""""""""""""""""""""""""""""
 Plug 'bronson/vim-trailing-whitespace'
