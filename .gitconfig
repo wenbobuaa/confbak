@@ -11,5 +11,3 @@
 	history = log --color --graph --decorate -M --pretty=format:\"%Cblue%h%C(yellow)%d %Creset%s | %Cgreen%an | %ad\" --date=short --abbrev-commit -M --all
 	fp = fetch -p
 	l2 = log --color --graph --decorate --format=\"%C(auto) %h%d %Cgreen%an%Creset %s %Cblue(%ad|%cr)%Creset\"
-[http]
-	sslVerify = false

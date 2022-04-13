@@ -20,7 +20,7 @@ set hidden                       "A buffer becomes hidden when it is abandoned
 set wildmode=list:longest
 set ttyfast
 set wildignore=*.swp,*.,*.pyc,*.class
-set scrolloff=7                  "至少有7行在光标所在行上下
+set scrolloff=6                  "至少有6行在光标所在行上下
 set selection=old
 set selectmode=mouse,key
 set viminfo^=%                   "Remember info about open buffers on close
@@ -85,7 +85,7 @@ autocmd InsertEnter * :set norelativenumber number
 autocmd InsertLeave * :set relativenumber
 
 set cursorline                  "突出显示当前行，可用Ctrl+k切换是否显示
-set cursorcolumn                "突出显示当前列，可用Ctrl+k切换是否显示
+"set cursorcolumn                "突出显示当前列，可用Ctrl+k切换是否显示
 
 """""""""""""""""""""""""""""""""""""""""
 " 自定义快捷键
@@ -101,33 +101,12 @@ let g:netrw_silent = 1
 " 到光标所在行第一个非空字符
 noremap ( ^
 noremap ) $
-inoremap <C-a> <Home>
-inoremap <C-e> <End>
-inoremap <C-f> <Right>
-inoremap <C-b> <Left>
-nnoremap <C-a> ^
-nnoremap <C-e> $
-
-" 从光标处复制到行尾，不包括行尾结束符
-noremap Y y$
-
-" 保存
-noremap <leader>w :w!<cr>
-
-" 保存并退出当前窗口
-noremap <leader>q :wq!<CR>
-
-
-" 相对/绝对行号转换
-noremap <leader>rt :call NumberToggle()<cr>
-cnoremap <leader>rt :call NumberToggle()<cr>:
 
 " 按;直接进入命令行模式
 nnoremap ; :
 
 " 去掉查找后的高亮显示
 noremap <silent><leader>/ :nohls<CR>
-
 
 " 多窗口标签快捷键
 """""""""""""""""""""""""""""""""""""""""
@@ -168,27 +147,7 @@ hi! link ShowMarksHLu DiffChange
 """""""""""""""""""""""""""""""""""""""""
 " 插件管理配置开始
 """""""""""""""""""""""""""""""""""""""""
-call plug#begin('~/.config/nvim/plugins')
-
-" 插件：目录导航等
-"""""""""""""""""""""""""""""""""""""""""
-Plugin 'scrooloose/nerdtree'
-nnoremap<leader>n :exe'NERDTreeToggle'<CR>
-let NERDTreeHighlightCursorline=1
-" close vim if the only window left open is a NERDTree
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | end
-
-" 默认方向键左右可以切换buffer
-noremap <leader>bn :MBEbn<CR>
-noremap <leader>bp :MBEbp<CR>
-noremap <leader>bd :MBEbd<CR>
-
-"" 插件：标签导航等
-""""""""""""""""""""""""""""""""""""""""
-Plug 'majutsushi/tagbar'
-nnoremap<leader>t :exe'TagbarToggle'<CR>
-let g:tagbar_left = 1
-autocmd FileType tagbar setlocal nocursorline nocursorcolumn
+call plug#begin()
 
 "" 插件：文件搜索
 """"""""""""""""""""""""""""""""""""""""
@@ -212,7 +171,6 @@ let g:airline#extensions#tabline#tab_nr_type = 2
 let g:airline_theme='atomic'
 let airline#extensions#tmuxline#snapshot_file = "~/.tmux-status.conf"
 let g:airline#extensions#tmuxline#enabled = 1
-
 let g:airline#extensions#tabline#buffer_idx_mode = 2
 nmap <leader>1 <Plug>AirlineSelectTab11
 nmap <leader>2 <Plug>AirlineSelectTab12
@@ -252,161 +210,14 @@ let g:airline_left_alt_sep = '❯'
 let g:airline_right_sep = '◀'
 let g:airline_right_alt_sep = '❮'
 
-Plug 'edkolev/tmuxline.vim'
-
-" 插件：括号显示增强
-"""""""""""""""""""""""""""""""""""""""""
-Plug 'kien/rainbow_parentheses.vim'
-let g:rbpt_colorpairs = [
-    \ ['brown',       'RoyalBlue3'],
-    \ ['Darkblue',    'SeaGreen3'],
-    \ ['darkgray',    'DarkOrchid3'],
-    \ ['darkgreen',   'firebrick3'],
-    \ ['darkcyan',    'RoyalBlue3'],
-    \ ['darkred',     'SeaGreen3'],
-    \ ['darkmagenta', 'DarkOrchid3'],
-    \ ['brown',       'firebrick3'],
-    \ ['gray',        'RoyalBlue3'],
-    \ ['black',       'SeaGreen3'],
-    \ ['darkmagenta', 'DarkOrchid3'],
-    \ ['Darkblue',    'firebrick3'],
-    \ ['darkgreen',   'RoyalBlue3'],
-    \ ['darkcyan',    'SeaGreen3'],
-    \ ['darkred',     'DarkOrchid3'],
-    \ ['red',         'firebrick3'],
-    \ ]
-let g:rbpt_max = 40
-let g:rbpt_loadcmd_toggle = 0
-" settings for kien/rainbow_parentheses.vim
-autocmd VimEnter * RainbowParenthesesToggle
-autocmd Syntax * RainbowParenthesesLoadRound
-autocmd Syntax * RainbowParenthesesLoadSquare
-autocmd Syntax * RainbowParenthesesLoadBraces
-
 " 插件：将每行无效的空格标红（,空格按键去掉末尾空格）
 """""""""""""""""""""""""""""""""""""""""
 Plug 'bronson/vim-trailing-whitespace'
 noremap <leader><space> :FixWhitespace<cr>
 
-" 插件：快速移动
-"""""""""""""""""""""""""""""""""""""""""
-" 更高效的移动 ,, + w/fx
-Plug 'Lokaltog/vim-easymotion'
-
-Plug 'mhinz/vim-grepper'
-
 " 插件：快速加/减注释(选中后,按,cc加上注释,按,cu解开注释)
 """""""""""""""""""""""""""""""""""""""""
-Plug 'scrooloose/nerdcommenter'
-
-" 插件：自动补全单引号，双引号等
-"""""""""""""""""""""""""""""""""""""""""
-Plug 'Raimondi/delimitMate'
-" for python docstring " ,优化输入
-autocmd FileType python let b:delimitMate_nesting_quotes = ['"']
-
-" 自动补全html/xml标签
-Plug 'docunext/closetag.vim'
-let g:closetag_html_style=1
-
-" 插件：代码格式化
-"""""""""""""""""""""""""""""""""""""""""
-Plug 'godlygeek/tabular'
-nnoremap <Leader>a= :Tabularize /=<CR>
-vnoremap <Leader>a= :Tabularize /=<CR>
-nnoremap <Leader>a: :Tabularize /:\zs<CR>
-vnoremap <Leader>a: :Tabularize /:\zs<CR>
-
-Plug 'nvie/vim-flake8'
-noremap <leader>ch :call Flake8()<CR>
-
-" 插件：具体语言语法高亮
-"""""""""""""""""""""""""""""""""""""""""
-" for python.vim syntax highlight
-Plug 'hdima/python-syntax'
-let python_highlight_all = 1
-
-
-" for markdown
-Plug 'plasticboy/vim-markdown'
-let g:vim_markdown_folding_disabled=1
-
-Plug 'tpope/vim-fugitive'
-Plug 'junegunn/gv.vim'
-
-Plug 'mzlogin/vim-markdown-toc'
-let g:vmt_dont_insert_fence = 1
-
-Plug 'terryma/vim-multiple-cursors'
-
-Plug 'tbastos/vim-lua'
-
-Plug 'vim-scripts/a.vim'
-
-"""""""""""""""""""""" vim-go """"""""""""""""""""""""""""
-Plug 'fatih/vim-go'
-
-au FileType go nmap <Leader>d <Plug>(go-doc-vertical)
-au FileType go nmap <Leader>b <Plug>(go-build)
-au FileType go nmap <Leader>l <Plug>(go-metalinter)
-
-let g:go_code_completion_enabled = 0
-let g:go_highlight_functions = 1
-let g:go_highlight_methods = 1
-let g:go_highlight_structs = 1
-let g:go_highlight_interfaces = 1
-let g:go_highlight_operators = 1
-let g:go_highlight_build_constraints = 1
-let g:go_mod_fmt_autosave = 0
-let g:syntastic_go_checkers = ['golint', 'govet', 'errcheck']
-let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['go'] }
-let g:go_fmt_command = "goimports"
-
-Plug 'neoclide/coc.nvim', {'tag': '*', 'do': './install.sh'}
-
-" Some servers have issues with backup files, see #649
-set nowritebackup
-
-" Better display for messages
-set cmdheight=2
-
-" Smaller updatetime for CursorHold & CursorHoldI
-set updatetime=300
-
-" don't give |ins-completion-menu| messages.
-set shortmess+=c
-
-" Use tab for trigger completion with characters ahead and navigate.
-" Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.
-inoremap <silent><expr> <TAB>
-      \ pumvisible() ? "\<C-n>" :
-      \ <SID>check_back_space() ? "\<TAB>" :
-      \ coc#refresh()
-inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
-
-function! s:check_back_space() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~# '\s'
-endfunction
-
-" Remap keys for gotos
-nmap <leader>gg <Plug>(coc-definition)
-nmap <leader>gf <Plug>(coc-type-definition)
-nmap <leader>gi <Plug>(coc-implementation)
-nmap <leader>gr <Plug>(coc-references)
-
-" Use K to show documentation in preview window
-nnoremap <silent> K :call <SID>show_documentation()<CR>
-function! s:show_documentation()
-  if (index(['vim','help'], &filetype) >= 0)
-    execute 'h '.expand('<cword>')
-  else
-    call CocAction('doHover')
-  endif
-endfunction
-
-" Remap for rename current word
-nmap <leader>rn <Plug>(coc-rename)
+Plug 'preservim/nerdcommenter'
 
 call plug#end()
 """""""""""""""""""""""""""""""""""""""""
