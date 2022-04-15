@@ -1,0 +1,259 @@
+{
+    /*
+    * remote ssh
+    */
+    "remote.SSH.remotePlatform": {
+        "uhost": "linux",
+        "thost": "linux",
+    },
+
+    /*
+    * vscode start
+    */
+    "editor.cursorBlinking": "solid",
+    "editor.tabCompletion": "on",
+    //"editor.codeActionsOnSave": {"source.organizeImports": true},
+    "editor.lineNumbers": "on",
+    "editor.tabSize": 4,
+    "editor.fontFamily": "Monaco, 'CascadiaCode PL', Consolas, 'Courier New', monospace",
+    "editor.fontSize": 16,
+    "editor.accessibilitySupport": "on",
+    "editor.suggestSelection": "first",
+    "editor.minimap.enabled": false,
+    "diffEditor.codeLens": true,
+
+    "window.zoomLevel": 0,
+
+    "workbench.editor.enablePreview": false,
+    "workbench.startupEditor": "newUntitledFile",
+    "workbench.editorAssociations": {
+        "*.ipynb": "jupyter.notebook.ipynb"
+    },
+
+    // search exclude
+    "files.exclude": {
+        "**/.classpath": true,
+        "**/.project": true,
+        "**/.settings": true,
+        "**/.factorypath": true
+    },
+
+    // sync
+    //"sync.quietSync": true,
+    //"sync.autoUpload": true,
+    //"sync.autoDownload": true,
+
+    /*
+    * vim start
+    */
+    "vim.easymotion": true,
+    "vim.incsearch": true,
+    "vim.useSystemClipboard": true,
+    "vim.useCtrlKeys": true,
+    "vim.hlsearch": true,
+    "vim.leader": "]",
+
+    "vim.visualModeKeyBindingsNonRecursive": [
+        {
+            "before": ["("],
+            "after": ["^"]
+        },
+        {
+            "before": [")"],
+            "after": ["$"]
+        },
+    ],
+    
+    "vim.normalModeKeyBindingsNonRecursive": [
+        // vim to workbench
+        {
+            "before": ["t"],
+            "commands": [
+                "workbench.action.gotoSymbol"
+            ]
+        },
+        {
+            "before": ["<leader>", "1"],
+            "commands": [
+                "workbench.action.openEditorAtIndex1"
+            ]
+        },
+        {
+            "before": ["<leader>", "2"],
+            "commands": [
+                "workbench.action.openEditorAtIndex2"
+            ]
+        },
+        {
+            "before": ["<leader>", "3"],
+            "commands": [
+                "workbench.action.openEditorAtIndex3"
+            ]
+        },
+        {
+            "before": ["<leader>", "4"],
+            "commands": [
+                "workbench.action.openEditorAtIndex4"
+            ]
+        },
+        {
+            "before": ["<leader>", "5"],
+            "commands": [
+                "workbench.action.openEditorAtIndex5"
+            ]
+        },
+        {
+            "before": ["<leader>", "6"],
+            "commands": [
+                "workbench.action.openEditorAtIndex6"
+            ]
+        },
+        {
+            "before": ["<leader>", "7"],
+            "commands": [
+                "workbench.action.openEditorAtIndex7"
+            ]
+        },
+        {
+            "before": ["<leader>", "8"],
+            "commands": [
+                "workbench.action.openEditorAtIndex8"
+            ]
+        },
+        {
+            "before": ["<leader>", "9"],
+            "commands": [
+                "workbench.action.openEditorAtIndex9"
+            ]
+        },
+
+
+        // vim to editor
+        {
+            "before": ["<leader>", "d"],
+            "commands": [
+                "editor.action.revealDefinition"
+            ],
+            "when": [
+                "editorHasDefinitionProvider && editorTextFocus && !isInEmbeddedEditor"
+            ]
+        },
+        {
+            "before": ["<leader>", "r"],
+            "commands": [
+                "editor.action.goToReferences"
+            ],
+            "when": [
+                "editorHasReferenceProvider && editorTextFocus && !inReferenceSearchEditor && !isInEmbeddedEditor"
+            ]
+        },
+        {
+            "before": ["<leader>", "t"],
+            "commands": [
+                "editor.action.goToTypeDefinition"
+            ]
+        },
+        {
+            "before": ["<leader>", "h"],
+            "commands": [
+                "editor.debug.action.showDebugHover",
+            ],
+            "when": [
+                "editorTextFocus && inDebugMode"
+            ]
+        },
+        {
+            "before": ["<leader>", "h"],
+            "commands": [
+                "editor.action.showHover",
+            ],
+            "when": [
+                "editorTextFocus"
+            ]
+        },
+
+        // vim self
+        {
+            "before": [";"],
+            "after": [":"]
+        },
+        {
+            "before": ["("],
+            "after": ["^"]
+        },
+        {
+            "before": [")"],
+            "after": ["$"]
+        },
+        {
+            "before": ["<leader>", "/"],
+            "after": [":", "n", "o", "h", "l", "enter"]
+        },
+        {
+            "before": ["ctrl+h"],
+            "after": ["ctrl+w", "h"]
+        },
+        {
+            "before": ["ctrl+j"],
+            "after": ["ctrl+w", "j"]
+        },
+        {
+            "before": ["ctrl+k"],
+            "after": ["ctrl+w", "k"]
+        },
+        {
+            "before": ["ctrl+l"],
+            "after": ["ctrl+w", "l"]
+        },
+    ],
+
+    /*
+    * code language
+    */
+    // python start
+    //"python.pythonPath": "/usr/local/bin/python",
+
+    // go start
+    "go.buildOnSave": "off",
+    "go.lintOnSave": "file",
+    "go.useLanguageServer": true,
+    "go.inferGopath": true,
+    "[go]": {
+        "editor.insertSpaces": false,
+        "editor.formatOnSave": true,
+        "editor.codeActionsOnSave": {
+            "source.organizeImports": true
+        }
+    },
+
+    // java start
+    "java.configuration.maven.globalSettings": "/etc/maven/settings.xml",
+    "redhat.telemetry.enabled": true,
+
+    // protoc start
+    "clang-format.style": "google",
+    "protoc": {
+        "path": "/usr/local/bin/protoc",
+        "compile_on_save": false,
+        "options": [
+            "--proto_path=protos/v3",
+            "--proto_path=protos/v2",
+            "--proto_path=${workspaceRoot}/proto",
+            "--proto_path=${env.GOPATH}/src",
+            "--java_out=gen/java"
+        ]
+    },
+    "[proto3]": {
+        "editor.formatOnSave": true,
+        "editor.defaultFormatter": "zxh404.vscode-proto3",
+    },
+    "security.workspace.trust.untrustedFiles": "open",
+    "terminal.explorerKind": "external",
+    "audioCues.lineHasBreakpoint": "off",
+    "audioCues.lineHasError": "off",
+    "audioCues.lineHasInlineSuggestion": "off",
+    "audioCues.noInlayHints": "off",
+    "audioCues.onDebugBreak": "off",
+    "audioCues.lineHasFoldedArea": "off",
+    "cmake.configureOnOpen": true,
+}
